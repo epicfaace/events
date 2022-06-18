@@ -20,13 +20,14 @@ function App() {
   }, []);
   const submitForm = async () => {
     const data = {};
-    await fetch(EVENT_FUNCTION_URL, {
+    const results = await fetch(EVENT_FUNCTION_URL, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    });
+    }).then(e => e.json());
+    // do something with results
   };
   
   if (loading) {
