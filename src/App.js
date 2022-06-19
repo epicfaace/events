@@ -36,23 +36,7 @@ function App() {
     // do something with results
   };
 
-function displayTable(events){
-    let table = '<table border="1">';
-    table += '<tr><th>Going</th><th>Name</th><th>Date</th><th>Time</th></tr>'; 
 
-    events.forEach((e, index) => {
-    table = table + '<tr>';
-    table = table+ '<td> <input type="checkbox" /></td>';
-    table = table + '<td>${e.name}</td>';
-    table = table + '<td>${e.date}</td>';
-    table = table + '<td> ${e.time}</td>';
-    table += '</tr>';
-    });
-    table += "</table>";
-    document.getElementById("events-list").innerHTML = table;
-}
-
-  displayTable(events);
   
   if (loading) {
     return "Loading...";
@@ -61,16 +45,25 @@ function displayTable(events){
 
 
   return (
-    <div className="App">
+      <div className="App">
       <input type="text" placeholder="Twitter username" />
-      
-      // <div id="events-list">
-      // // displayTable(events);
-
-      // </div>
-
-
-
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+        </tr>
+        {events.map((val, key) => {
+          return (
+            <tr key={key}>
+              <td><input type="checkbox" /></td>
+              <td>{val.name}</td>
+              <td>{val.date}</td>
+              <td>{val.time}</td>
+            </tr>
+          )
+        })}
+      </table>
       <button onClick={submitForm}>Submit</button>
     </div>
   );
