@@ -49,14 +49,18 @@ function App() {
       <input type="text" placeholder="Twitter username" />
       <table>
         <tr>
+        <th>Going</th>
           <th>Name</th>
-          <th>Age</th>
-          <th>Gender</th>
+          <th>date</th>
+          <th>Time</th>
         </tr>
         {events.map((val, key) => {
           return (
             <tr key={key}>
-              <td><input type="checkbox" /></td>
+              <td><label class="switch">
+              <input type="checkbox" />
+              <span class="slider round">
+              </span></label></td>
               <td>{val.name}</td>
               <td>{val.date}</td>
               <td>{val.time}</td>
