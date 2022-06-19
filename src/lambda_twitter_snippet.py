@@ -1,7 +1,7 @@
 # Use this code snippet in your app.
 import boto3
 from botocore.exceptions import ClientError
-
+import tweepy
 
 def get_secret():
     secret_name = "Demo/Twitter_bearer_token"
@@ -38,5 +38,20 @@ def get_secret():
     
 
 def get_twitter_friends(username):
+
+    # delete this 
+    username = "evayzh"
     
-    bearer_token = 'AAAAAAAAAAAAAAAAAAAAAFSodwEAAAAAxRbWSW8hrHsbs8IHAJacORB2XEU%3Dq0ZlNetbVoBc6qzgip7rjsIGhHsnDoP3dUBPDoKtXoteGoxeVH'
+    # delete this plaintext lol use the amazon get_secret func 
+    consumer_key = 'kfSMzLA0aCKv3CANpDjunniK8'
+    consumer_secret = 'ZkJTDrtFtYsEThvXdlZp7yqAauhXQLB15QQLKwnSOOJTpUd58A'
+
+    auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
+    api=tweepy.API(auth)
+    friends_list = api.friends(username)
+
+    # check working 
+    print(friends_list[0])
+
+    # map friends_list back to ID 
+    return friends_list 
