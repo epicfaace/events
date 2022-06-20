@@ -89,11 +89,10 @@ function App() {
             <tr key={key}>
               <td><label class="switch">
               <input type="checkbox" 
-              onChange={handleChange}
               />
               <span class="slider round">
               </span></label></td>
-              <td>{val.name}</td>
+              <td><a href = {val.link}>{val.name}</a></td>
               <td>{val.date}</td>
               <td>{val.time}</td>
             </tr>
